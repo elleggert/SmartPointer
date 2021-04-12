@@ -14,6 +14,15 @@ public:
         *refCount = 1;
     }
 
+    SmartPointer& operator=(SmartPointer const& other){
+        //CHECK FOR SELF ASSIGNMENT
+        delete this->heapObject;
+        this->heapObject = other.heapObject;
+        this->refCount = other.refCount;
+        *(this->refCount)++;
+
+    }
+
     virtual ~SmartPointer() {
         *refCount--;
         if ((*refCount) <= 0) {
