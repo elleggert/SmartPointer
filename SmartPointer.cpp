@@ -24,6 +24,10 @@ public:
         return *this;
     }
 
+    SmartPointer(SmartPointer const& other){
+        *this = other;
+    }
+
     virtual ~SmartPointer() {
         *refCount--;
         if ((*refCount) <= 0) {
