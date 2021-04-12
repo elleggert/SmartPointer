@@ -5,13 +5,21 @@
 
 template<typename T>
 class SmartPointer {
+private:
+    T* heapObject;
+    int* refCount;
 public:
     SmartPointer(T* heapObject) : heapObject(heapObject){
         refCount = new int;
         *refCount = 1;
     }
 
-private:
-    T* heapObject;
-    int* refCount;
+    virtual ~SmartPointer() {
+        *refCount--;
+        if ((*refCount) <= 0) {
+            delete heapObject;
+            delete refCount;
+        }
+    }
 };
+
