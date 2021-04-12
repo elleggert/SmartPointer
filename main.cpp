@@ -2,6 +2,12 @@
 #include "SmartPointer.cpp"
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
+    //Creating some new smart pointers
+    auto integer = new int;
+    *integer = 1;
+    SmartPointer<int> sm1(integer);
+    auto sm2 = sm1;
+
+    std::cout << sm1.getRefCount() << std::endl;
+
 }
