@@ -5,6 +5,12 @@
 
 template<typename T>
 class SmartPointer {
+public:
+    SmartPointer(T* heapObject) : heapObject(heapObject){
+        refCount = new int;
+        *refCount = 1;
+    }
+
 private:
     T* heapObject;
     int* refCount;
