@@ -24,6 +24,14 @@ public:
         return *this;
     }
 
+    T & operator*() {
+        return *(this->heapObject);
+    }
+
+    T* operator->(){
+        return this->heapObject;
+    }
+
     SmartPointer(SmartPointer const& other){
         *this = other;
     }
