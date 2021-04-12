@@ -23,7 +23,7 @@ private:
 
     void copy(const SmartPointer<T>& other) {
         // Copy the pointers to the referenced object and its reference count
-        heapObject = other.heapObjecto;
+        heapObject = other.heapObject;
         refCount = other.refCount;
 
         if(heapObject != nullptr) {
@@ -40,7 +40,7 @@ public:
         refCount = new int(1);
     }
 
-    SmartPointer& operator=(SmartPointer<T>& other){
+    SmartPointer<T>& operator=(SmartPointer<T> & other){
         if (&other != this){
             release();
             copy(other);
